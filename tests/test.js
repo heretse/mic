@@ -17,17 +17,24 @@ micInputStream.on('error', function(err) {
     cosole.log("Error in Input Stream: " + err);
 });
 
+
+micInputStream.on('startSpeech', function() {
+        console.log("Got SIGNAL startSpeech");
+
+    });
+
+
 micInputStream.on('startComplete', function() {
         console.log("Got SIGNAL startComplete");
         setTimeout(function() {
                 micInstance.pause();
             }, 5000);
     });
-    
+
 micInputStream.on('stopComplete', function() {
         console.log("Got SIGNAL stopComplete");
     });
-    
+
 micInputStream.on('pauseComplete', function() {
         console.log("Got SIGNAL pauseComplete");
         setTimeout(function() {
