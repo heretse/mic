@@ -1,7 +1,12 @@
 var mic = require('../index.js');
 var fs = require('fs');
 
-var micInstance = mic({ 'rate': '16000', 'channels': '1', 'debug': false, 'exitOnSilence': 6 });
+var micInstance = mic({'rate': '16000',
+	'channels': '1',
+	'debug': true,
+	'exitOnSilence': 20,
+	'device': 'plughw:2' });
+
 var micInputStream = micInstance.getAudioStream();
 
 var outputFileStream = fs.WriteStream('output.raw');
